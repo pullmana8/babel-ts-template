@@ -1,0 +1,30 @@
+{
+  "name": "babel-ts-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "pnpm run type-check -- --watch",
+    "build": "pnpm run build:types && pnpm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
+    "start": "babel-node -x \".ts\" src/index.ts",
+    "node-start": "pnpx babel src/index.js -d dist && pnpx node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
+    "@types/node": "^14.0.11",
+    "rambda": "^5.6.1",
+    "rambdax": "^3.7.0",
+    "typescript": "^4.0.0-dev.20200608"
+  }
+}
